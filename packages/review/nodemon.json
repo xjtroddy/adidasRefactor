@@ -1,7 +1,8 @@
 {
   "verbose": true,
   "watch": [
-    "packages/review/src/**/*.ts"
+    "packages/review/src/**/*.ts",
+    "packages/declare/src/**/*.ts"
   ],
   "delay": "1000",
   "exec": "APP_PORT=3027 node --inspect -r ts-node/register ./packages/review/src/app.ts",

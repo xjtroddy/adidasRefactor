@@ -1,0 +1,14 @@
+{
+  "name": "@adidas/declare",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rm -rf ./lib && tsc",
+    "lint": "tslint 'src/**/*.ts' -t stylish",
+    "clean": "rm -rf ./lib"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

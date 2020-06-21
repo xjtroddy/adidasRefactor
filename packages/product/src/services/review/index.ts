@@ -1,3 +1,4 @@
+import { ReviewInfo } from '@adidas/declare'
 import * as config from 'config'
 
 import { requestGet } from '../../utils'
@@ -10,9 +11,3 @@ export async function getProductReview (
   return productReview
 }
 
-interface ReviewInfo {
-  id: string,
-  name: string,
-  review: string,
-  rows: string[],
-}

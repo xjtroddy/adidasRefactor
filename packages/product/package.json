@@ -9,6 +9,7 @@
     "clean": "rm -rf ./lib"
   },
   "dependencies": {
+    "@adidas/declare": "*",
     "config": "^3.3.1",
     "express": "^4.17.1",
     "koa-router": "^9.0.1",

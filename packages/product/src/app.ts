@@ -16,6 +16,7 @@ logger.info({
 redis.connect()
 
 const app = new Koa()
+app.use(middleware.protectApp)
 app.use(bodyparser())
 app.use(middleware.ratelimiter())
 app.use(router.routes())

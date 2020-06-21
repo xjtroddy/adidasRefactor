@@ -17,6 +17,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "@types/koa-router": "^7.4.1"
+    "@types/koa-router": "^7.4.1",
+    "@types/lodash": "^4.14.155"
   }
 }

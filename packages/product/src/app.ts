@@ -1,10 +1,9 @@
-import { utils } from '@adidas/core'
+import { middleware, redis, utils } from '@adidas/core'
 import * as config from 'config'
 import * as Koa from 'koa'
 import * as bodyparser from 'koa-bodyparser'
 
 import router from './router'
-import * as redisService from './services/redis'
 
 const pkg = require('../package.json')
 const env = process.env.NODE_ENV
@@ -14,10 +13,11 @@ logger.info({
   class: 'start',
   message: 'Connecting redis',
 })
-redisService.connect()
+redis.connect()
 
 const app = new Koa()
 app.use(bodyparser())
+app.use(middleware.ratelimiter())
 app.use(router.routes())
 const port = process.env.PORT || config.app.port || 3000
 

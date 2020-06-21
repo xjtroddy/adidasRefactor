@@ -1,8 +1,9 @@
 import { ProductInfo } from '@adidas/declare'
+import { redis } from '@adidas/core'
 import * as config from 'config'
 
 import { requestGet } from '../../utils'
-import { getProductCache, setProductCache } from '../redis'
+const { getProductCache, setProductCache } = redis
 
 export async function getProductInfo (
   productId: string,

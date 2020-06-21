@@ -1,7 +1,44 @@
-FROM node:6-alpine
-RUN mkdir /app
+# use double copy to make image smaller
+# runcmd and package are injected from outside
+FROM node:12.18-alpine
+ARG PACKAGE
 WORKDIR /app
-COPY package.json .
-RUN npm install
-COPY . .
-CMD ["npm", "start"]
+
+COPY packages/core/package.json.swp ./packages/core/package.json
+COPY packages/core/yarn.lock ./packages/core/yarn.lock
+
+COPY packages/declare/package.json.swp ./packages/declare/package.json
+
+COPY packages/${PACKAGE}/package.json.swp ./packages/${PACKAGE}/package.json
+COPY packages/${PACKAGE}/yarn.lock ./packages/${PACKAGE}/yarn.lock
+
+COPY lerna.json ./lerna.json
+COPY package.json ./package.json
+RUN npm install lerna
+RUN npm run prepare:local
+
+
+FROM node:12.18-alpine
+ARG PACKAGE
+WORKDIR /app
+
+COPY --from=builder /app/packages/core/node_modules ./packages/core/node_modules
+COPY --from=builder /app/packages/${PACKAGE}/node_modules ./packages/${PACKAGE}/node_modules
+COPY packages ./packages
+COPY package.json ./package.json
+COPY dist ./dist
+
+ARG BUILD_COMMIT=unknown
+ARG BUILD_TIME=unknown
+ARG BUILD_AUTHOR=unknown
+ARG BUILD_ID=unknown
+ENV BUILD_COMMIT ${BUILD_COMMIT}
+ENV BUILD_TIME ${BUILD_TIME}
+ENV BUILD_AUTHOR ${BUILD_AUTHOR}
+ENV BUILD_ID ${BUILD_ID}
+ARG RUNCMD
+ENV RUNCMD ${RUNCMD}
+
+EXPOSE 3000
+
+CMD ${RUNCMD}

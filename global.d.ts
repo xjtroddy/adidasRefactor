@@ -3,6 +3,7 @@ declare module 'config' {
     app: {
       port: string,
       secret: string,
+      logLevel: string,
     },
     storage: {
       mongo: {

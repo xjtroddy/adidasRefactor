@@ -15,3 +15,5 @@ storage:
 service:
   review:
     host: 'http://localhost:3027'
+  adidas:
+    host: 'https://www.adidas.co.uk'

@@ -26,6 +26,8 @@
     "@types/jsonwebtoken": "^8.5.0",
     "@types/mongoose": "^5.7.27",
     "@types/morgan": "^1.9.1",
+    "@types/node-fetch": "^2.5.7",
+    "@types/winston": "^2.4.4",
     "lerna": "^3.22.1",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2",
@@ -36,7 +38,5 @@
   "engines": {
     "node": ">=12.0.0"
   },
-  "dependencies": {
-    "config": "^3.3.1"
-  }
+  "dependencies": {}
 }

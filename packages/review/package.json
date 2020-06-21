@@ -14,5 +14,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.19",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/koa-router": "^7.4.1"
   }
 }

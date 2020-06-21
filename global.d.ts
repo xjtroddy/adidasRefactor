@@ -21,6 +21,9 @@ declare module 'config' {
       review: {
         host: string,
       },
+      adidas: {
+        host: string,
+      }
     },
   }
   const config: Config

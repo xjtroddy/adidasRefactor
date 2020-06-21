@@ -16,7 +16,10 @@ declare module 'config' {
         user: string,
         password: string,
         name: string,
-      }
+      },
+      redis: {
+        addr: string,
+      },
     }
     service: {
       review: {

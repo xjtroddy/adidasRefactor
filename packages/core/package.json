@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@adidas/declare": "*",
     "winston": "^3.3.0"
   }
 }

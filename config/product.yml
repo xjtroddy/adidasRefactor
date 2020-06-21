@@ -1,0 +1,12 @@
+storage:
+  mongo:
+    url: 'mongodb://username:password@productHost:27017'
+    name: dbname
+    authDB: admin
+  mysql:
+    addr: mysqladdr
+    user: username
+    password: password,
+    name: dbname
+  service:
+    host: 'http://productHost:3027'

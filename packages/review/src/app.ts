@@ -11,9 +11,9 @@ import * as User from './models/user'
 const app = express()
 app.use(express.json())
 
-const PORT = process.env.PORT || 3027
-mongoose.connect(config.database)
-app.set('superSecret', config.secret)
+const PORT = process.env.PORT || config.app.port || 3000
+mongoose.connect(config.storage.mongo.url)
+app.set('superSecret', config.app.secret)
 
 const con = mysql.createConnection({
   host: 'localhost',
@@ -98,10 +98,10 @@ apiRoutes.post('/authenticate', function (req, res) {
   })
 })
 
-apiRoutes.use(function(req, res, next) {
+apiRoutes.use(function (req, res, next) {
   const token = req.body.token || req.query.token || req.headers['x-access-token']
   if (token) {
-    jwt.verify(token, app.get('superSecret'), function(err, decoded) {
+    jwt.verify(token, app.get('superSecret'), function (err, decoded) {
       if (err) {
         return res.json({
           success: false,

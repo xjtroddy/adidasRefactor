@@ -1,0 +1,17 @@
+app:
+  port: 3000
+  logLevel: debug
+  secret: supersecret
+storage:
+  mongo:
+    url: 'mongodb://username:password@localhost:27017'
+    name: dbname
+    authDB: admin
+  mysql:
+    addr: mysqladdr
+    user: username
+    password: password,
+    name: dbname
+service:
+  review:
+    host: 'http://localhost:3027'

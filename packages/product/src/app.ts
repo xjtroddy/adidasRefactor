@@ -1,10 +1,12 @@
+import * as config from 'config'
 import * as express from 'express'
 import * as fetch from 'node-fetch'
 
+process.env.NODE_CONFIG_DIR= __dirname + '/packages/product/config'
 // var app = require('./product-reviews');
 const app = express()
 app.use(express.json())
-const PORT = process.env.PORT || 3028
+const PORT = process.env.PORT || config.app.port || 3000
 
 function get (url: string) {
   return new Promise((resolve, reject) => {
@@ -18,7 +20,7 @@ function get (url: string) {
 app.get('/api/product/:product_id', (req, res) => {
   Promise.all([
       get(`https://www.adidas.co.uk/api/products/${req.params.product_id}`),
-      get(`http://localhost:3027/api/review/${req.params.product_id}?token=${req.query.token}`),
+      get(`${config.service.review.host}/api/review/${req.params.product_id}?token=${req.query.token}`),
     ]).then(([product, {
         rows,
       }]) =>

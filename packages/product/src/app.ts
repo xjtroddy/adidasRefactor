@@ -17,6 +17,7 @@ redis.connect()
 
 const app = new Koa()
 app.use(middleware.protectApp)
+app.use(middleware.log)
 app.use(bodyparser())
 app.use(middleware.ratelimiter())
 app.use(router.routes())

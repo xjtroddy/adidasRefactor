@@ -12,6 +12,7 @@ const env = process.env.NODE_ENV
 
 const app = new Koa()
 app.use(middleware.protectApp)
+app.use(middleware.log)
 app.use(bodyparser())
 app.use(middleware.ratelimiter())
 app.use(apiRouter.routes())

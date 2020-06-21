@@ -1,33 +1,33 @@
-var app = require('./product-reviews');
-const express = require('express')
-const product = express()
-product.use(express.json());
-const fetch = require('node-fetch')
-const PORT = process.env.PORT || 3028;
+import * as express from 'express'
+import * as fetch from 'node-fetch'
 
-function get(url) {
+// var app = require('./product-reviews');
+const app = express()
+app.use(express.json())
+const PORT = process.env.PORT || 3028
+
+function get (url: string) {
   return new Promise((resolve, reject) => {
-    fetch(url)
+    fetch(url, {})
       .then(res => res.json())
       .then(data => resolve(data))
       .catch(err => reject(err))
   })
 }
 
-product.get('/api/product/:product_id', (req, res) => {
+app.get('/api/product/:product_id', (req, res) => {
   Promise.all([
       get(`https://www.adidas.co.uk/api/products/${req.params.product_id}`),
       get(`http://localhost:3027/api/review/${req.params.product_id}?token=${req.query.token}`),
     ]).then(([product, {
-        rows
+        rows,
       }]) =>
       res.send({
         reviews: rows,
-        product: product
+        product,
       }))
     .catch(err => res.send('Ops, something has gone wrong'))
 });
 
-product.use(express.static(__dirname + '/'))
-product.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
-module.exports = product;
+app.use(express.static(__dirname + '/'))
+app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`))

@@ -1,0 +1,62 @@
+stages:
+  - test
+  - deploy
+  - publish
+
+variables:
+  DOCKER_GROUP: thoughts
+  JENKINS_JOB_name: thoughts-server
+  JENKINS_HOST: http://192.168.0.1:8999
+
+cache:
+  key: ${CI_PROJECT_PATH}_${CI_PROJECT_ID}_5
+  paths:
+    - .yarn
+    - node_modules
+
+before_script:
+  - node -v; npm -v; yarn -v; yarn config set cache-folder .yarn
+  - ls -la
+  - yarn global add lerna --prefer-offline
+  - yarn
+  - lerna link
+
+test:
+  stage: test
+  script:
+    - npm run lint
+    - npm run build
+
+build&deloy:review:
+  stage: build
+  script:
+    - make build-review
+    - make push-review-daily
+    - make deploy-review
+  when: manual
+
+build&deloy:product:
+  stage: build
+  script:
+    - make build-product
+    - make push-product-daily
+    - make deploy-product
+  when: manual
+
+publish:review:tag:
+  stage: publish
+  only:
+    - tags
+  script:
+    - make build-review
+    - make push-review-production
+  when: manual
+
+publish:product:tag:
+    stage: publish
+    only:
+      - tags
+    script:
+      - make build-product
+      - make push-product-production
+    when: manual

@@ -1,10 +1,10 @@
 # Refactor KeyPoint
 1. use lerna to manage two microServices.
 2. split to 4 folder in packages.
-  - review: the review service
-  - product: the product service
-  - core: some services shared by review and product, such as db, 3rd service, middleware
-  - declare: the interface and type declare shared by other services
+      - review: the review service
+      - product: the product service
+      - core: some services shared by review and product, such as db, 3rd service, middleware
+      - declare: the interface and type declare shared by other services
 3. use typescript instead of javascript
 4. use yarn instead of npm
 5. add log module, will log every request to the service

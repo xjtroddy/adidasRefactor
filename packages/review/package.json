@@ -13,11 +13,15 @@
     "config": "^3.3.1",
     "jsonwebtoken": "^8.5.1",
     "koa-bodyparser": "^4.3.0",
+    "mocha": "^8.0.1",
     "mongoose": "^5.9.19",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "should": "^13.2.3"
   },
   "devDependencies": {
     "@types/koa-router": "^7.4.1",
-    "@types/lodash": "^4.14.155"
+    "@types/lodash": "^4.14.155",
+    "@types/mocha": "^7.0.2",
+    "mocha": "^8.0.1"
   }
 }

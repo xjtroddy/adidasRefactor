@@ -4,7 +4,7 @@ import { getClient } from './init'
 const client = getClient()
 
 export async function createReview (
-  productId: number,
+  productId: string,
   avg_review_score: number,
   num_of_reviews: number,
   ) {
@@ -17,7 +17,7 @@ export async function createReview (
 }
 
 export async function getReviewByProductId (
-  productId: number,
+  productId: string,
 ) {
   const reviewRepository = client.getRepository(Review);
   const review = await reviewRepository.findOne({ product_id: productId })
@@ -25,7 +25,7 @@ export async function getReviewByProductId (
 }
 
 export async function updateReviewByProductId (
-  productId: number,
+  productId: string,
   avg_review_score: number,
   num_of_reviews: number,
 ) {
@@ -42,7 +42,7 @@ export async function updateReviewByProductId (
 }
 
 export async function deleteReview (
-  productId: number,
+  productId: string,
 ) {
   const reviewRepository = client.getRepository(Review)
   const reviewToRemove = await reviewRepository.findOne({ product_id: productId })

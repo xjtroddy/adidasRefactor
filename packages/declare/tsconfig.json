@@ -21,9 +21,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noImplicitAny": false,
-    "noUnusedParameters": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "noUnusedParameters": true
   },
   "include": [
     "src/**/*.ts",

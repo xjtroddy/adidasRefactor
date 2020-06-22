@@ -4,8 +4,8 @@ stages:
   - publish
 
 variables:
-  DOCKER_GROUP: thoughts
-  JENKINS_JOB_name: thoughts-server
+  DOCKER_GROUP: adidas
+  JENKINS_JOB_name: adidas
   JENKINS_HOST: http://192.168.0.1:8999
 
 cache:

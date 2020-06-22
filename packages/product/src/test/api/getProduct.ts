@@ -5,11 +5,11 @@ import { createProduct, getProduct } from './utils/product'
 
 // just for example
 // todo: use real case
-describe('product|one', function () {
+describe('product|one', () => {
   let res: any
   let product: any
 
-  it('one', async function () {
+  it('one', async () => {
     await createProduct()
     res = await getProduct()
     product = res.body

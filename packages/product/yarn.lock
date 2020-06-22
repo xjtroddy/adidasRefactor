@@ -964,6 +964,11 @@ once@^1.3.0:
   dependencies:
     wrappy "1"
 
+opossum@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/opossum/-/opossum-5.0.0.tgz#d04446d0ac78de77559fc5b44e8bbd1ec71075bc"
+  integrity sha512-wW5h73TzpDZ3XsdbxQhF3RXXZxHZb5pVDCo3QCe6c2OOd8RupD4XUYXtNCRKoyebde2+MdX2PFR6dQwAmloRkA==
+
 p-limit@^2.0.0, p-limit@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.3.0.tgz#3dd33c647a214fdfffd835933eb086da0dc21db1"

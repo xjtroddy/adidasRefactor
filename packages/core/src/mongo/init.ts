@@ -1,4 +1,3 @@
-import * as fs from 'fs'
 import * as config from 'config'
 import * as mongoose from 'mongoose'
 import { ConnectionOptions, Connection } from 'mongoose'

@@ -1,2 +1,38 @@
+build/
+tmp/
+temp/
+
+/packages/*/node_modules
 node_modules
-*.log
+# testing
+/packages/*/coverage
+/packages/*/temp
+
+# misc
+/packages/*/.yarn
+/packages/*/.DS_Store
+/packages/*/.cdnUploaderCache
+/packages/*/*.log
+/packages/*/.idea/
+
+#swagger
+/packages/*/swagger.json
+
+# build
+/packages/*/server
+/packages/*/builder*
+/packages/*/COMMIT_HASH
+/packages/*/dist
+/packages/*/views/assets
+/packages/*/lib
+
+# statics
+dist
+
+# IDE
+.idea
+
+# ali environment
+.env
+# logs
+yarn-error.log

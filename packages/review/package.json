@@ -5,7 +5,7 @@
   "main": "./lib/app.js",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "rm -rf ./lib && npm run build:statics && tsc",
+    "build": "rm -rf ./lib && tsc",
     "clean": "rm -rf ./lib"
   },
   "dependencies": {

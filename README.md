@@ -18,10 +18,11 @@
 13. add test module. just api level, not enough time to write unit test
 14. add swagger.json for document
 15. refactor the dockerfile. split dockerfile to 2 part. It will make image smaller
-16. add cache to 3rd service. I suppose the result from it will never change(should alse add fusing. but not enough time to do)
-17. add migration
-18. use dependency injection in mysqlorm
-19. use koa instead of express (just because I'm more familiar with it)
+16. add cache to 3rd service. I suppose the result from it will never change
+17. add CircuitBreaker on 3rd service.
+18. add migration
+19. use dependency injection in mysqlorm
+20. use koa instead of express (just because I'm more familiar with it)
 
 # develop environment
 - node: 12.x
@@ -29,11 +30,10 @@
 - pluginRecommend: typescriptHero, it will make your imports clean
 
 # todo
-1. add fusing to 3rd service. (do not have enough time to do)
-2. add parameters check. can use Validator or ajv
-3. add unit test (do not have enough time)
-4. can use other framework. recommend: nestjs, midway
-5. use config injection instead of writing plain text in code or config file
+1. add parameters check. can use Validator or ajv
+2. add unit test (do not have enough time)
+3. can use other framework. recommend: nestjs, midway
+4. use config injection instead of writing plain text in code or config file
 ...(not enough time to do that's all)
 
 

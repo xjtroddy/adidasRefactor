@@ -4,4 +4,5 @@ export interface ReviewInfo {
   review: string,
   avg_review_score: number,
   num_of_reviews: number,
+  rows: any[],
 }

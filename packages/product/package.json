@@ -5,7 +5,7 @@
   "main": "./lib/app.js",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "rm -rf ./lib && npm run build:statics && tsc",
+    "build": "rm -rf ./lib && tsc",
     "clean": "rm -rf ./lib"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "express": "^4.17.1",
     "koa-router": "^9.0.1",
     "node-fetch": "^2.6.0",
+    "opossum": "^5.0.0",
     "should": "^13.2.3"
   },
   "engines": {

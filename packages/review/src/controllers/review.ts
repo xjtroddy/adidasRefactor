@@ -25,7 +25,7 @@ class ReviewController {
 
   async delete (ctx: IRouterContext) {
     const { productId } = ctx.params
-    await mysql.review.getReviewByProductId(productId)
+    await mysql.review.deleteReview(productId)
     ctx.body = {
       success: true
     }

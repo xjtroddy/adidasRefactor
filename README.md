@@ -1,3 +1,44 @@
+# Refactor KeyPoint
+1. use lerna to manage two microServices.
+2. split to 4 folder in packages.
+  - review: the review service
+  - product: the product service
+  - core: some services shared by review and product, such as db, 3rd service, middleware
+  - declare: the interface and type declare shared by other services
+3. use typescript instead of javascript
+4. use yarn instead of npm
+5. add log module, will log every request to the service
+6. add ratelimit middleware
+7. use yaml config file instead of write config in code
+8. use lint to make code clean
+9. use nodemon to do daily develop
+10. use gitlab.ci and makefile to do ci/cd
+11. refactor the code struct with router -> controller -> blls(not in this demo) -> sevices or db
+12. use orm (typeorm & mongoose)
+13. add test module. just api level, not enough time to write unit test
+14. add swagger.json for document
+15. refactor the dockerfile. split dockerfile to 2 part. It will make image smaller
+16. add cache to 3rd service. I suppose the result from it will never change(should alse add fusing. but not enough time to do)
+17. add migration
+18. use dependency injection in mysqlorm
+19. use koa instead of express (just because I'm more familiar with it)
+
+# develop environment
+- node: 12.x
+- ide: vscode
+- pluginRecommend: typescriptHero, it will make your imports clean
+
+# todo
+1. add fusing to 3rd service. (do not have enough time to do)
+2. add parameters check. can use Validator or ajv
+3. add unit test (do not have enough time)
+4. can use other framework. recommend: nestjs, midway
+5. use config injection instead of writing plain text in code or config file
+...(not enough time to do that's all)
+
+
+
+
 # adidas nodeJS Coding Challenge
 This repo provides a solution in nodeJS for an architecture with two microservices:
 - Reviews, that implements CRUD operations for products reviews

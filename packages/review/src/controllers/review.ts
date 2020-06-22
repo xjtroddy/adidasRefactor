@@ -1,54 +1,34 @@
+import { mysql } from '@adidas/core'
 import { IRouterContext } from 'koa-router'
+
 
 class ReviewController {
   async getOne (ctx: IRouterContext) {
-    const id = req.params.product_id
-    con.query('select * from product_reviews where product_id =?', [id], function (err, rows) {
-      if (err) throw err
-      res.json({
-        rows
-      })
-    })
+    const { productId } = ctx.params
+    const review = await mysql.review.getReviewByProductId(productId)
+    ctx.body = review
   }
 
   async create (ctx: IRouterContext) {
-    const input = JSON.parse(JSON.stringify(req.body))
-    const data = {
-      product_id: input.product_id,
-      avg_review_score: input.avg_review_score,
-      num_of_reviews: input.num_of_reviews
-    }
-    con.query('insert into product_reviews set ?', data, function (err, rows) {
-      if (err) throw err
-      res.json({
-        rows
-      })
-    })
+    const { productId, avg_review_score, num_of_reviews } = ctx.body
+    const review = await mysql.review.createReview(productId, avg_review_score, num_of_reviews)
+
+    ctx.body = review
   }
 
   async update (ctx: IRouterContext) {
-    const input = JSON.parse(JSON.stringify(req.body))
-    const id = req.params.product_id
-    const data = {
-      avg_review_score: input.avg_review_score,
-      num_of_reviews: input.num_of_reviews
-    }
-    con.query('update product_reviews set ? where product_id = ?', [data, id], function (err, rows) {
-      if (err) throw err
-      res.json({
-        rows
-      })
-    })
+    const { productId } = ctx.params
+    const { avg_review_score, num_of_reviews } = ctx.body
+    const review = await mysql.review.updateReviewByProductId(productId, avg_review_score, num_of_reviews)
+    ctx.body = review
   }
 
   async delete (ctx: IRouterContext) {
-    const id = req.params.product_id
-    con.query('delete from product_reviews where product_id =?', [id], function (err: Error, rows) {
-      if (err) throw err
-      res.json({
-        rows
-      })
-    })
+    const { productId } = ctx.params
+    await mysql.review.getReviewByProductId(productId)
+    ctx.body = {
+      success: true
+    }
   }
 }
 

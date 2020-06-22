@@ -1,0 +1,67 @@
+{
+  "info": {
+    "contact": {
+      "mail": "xjtroddy@163.com"
+    },
+    "description": "adidas node API",
+    "title": "adidas",
+    "version": "2.14.1"
+  },
+  "host": "localhost",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "definitions": {
+    "ReviewInfo": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "avg_review_score": {
+          "type": "number",
+          "description": "avg_review_score"
+        },
+        "num_of_reviews": {
+          "type": "number",
+          "description": "num_of_reviewse"
+        }
+      }
+    }
+  },
+  "paths": {
+    "/api/review/:productId": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "get the product reivew info",
+            "schema": {
+              "$ref": "#/definitions/ProductInfo"
+            }
+          }
+        },
+        "summary": "get one product's review info",
+        "tags": [
+          "product"
+        ],
+        "parameters": [
+          {
+            "description": "product id",
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "description": "get product's review info"
+      }
+    }
+  }
+}

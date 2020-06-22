@@ -1,0 +1,67 @@
+{
+  "info": {
+    "contact": {
+      "mail": "xjtroddy@163.com"
+    },
+    "description": "adidas node API",
+    "title": "adidas",
+    "version": "2.14.1"
+  },
+  "host": "localhost",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "definitions": {
+    "ProductInfo": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "product id"
+        },
+        "name": {
+          "type": "string",
+          "description": "product name"
+        }
+      }
+    }
+  },
+  "paths": {
+    "/api/product/{productId}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "product info",
+            "schema": {
+              "$ref": "#/definitions/ProductInfo"
+            }
+          }
+        },
+        "summary": "get one product info",
+        "tags": [
+          "product"
+        ],
+        "parameters": [
+          {
+            "description": "product",
+            "name": "product",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "description": "get product info"
+      }
+    }
+  }
+}
